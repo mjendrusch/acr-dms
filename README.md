@@ -30,7 +30,7 @@ source setup.sh
 This will create and activate a new conda-environment `acrdms` containing all dependencies needed to reproduce our analyses.
 
 
-Finally, download `acr-dms-data.tar.gz` from [our dataset deposited at Zenodo](https://dx.doi.org/10.5281/zenodo.5221560) and unpack it in this directory.
+Finally, download `acrdms_data_v2.tar.gz` from [our dataset deposited at Zenodo](https://zenodo.org/records/13374667) and unpack it in this directory.
 
 ```bash
 tar -xzf acr-dms-data.tar.gz
@@ -46,6 +46,6 @@ To reproduce the anaĺyses in our manuscript, follow the installation instructio
 jupyter notebook
 ```
 
-Open the notebook `AcrDMS.ipynb`, click on "Cell" in the toolbar and select "Run All".
+Open the notebook `AcrDMS.ipynb` and run the cells you want to evaluate from top to bottom, or click on "Cell" in the toolbar and select "Run All".
 This will run all analyses and reproduce all plots used in our manuscript.
 

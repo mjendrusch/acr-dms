@@ -33,7 +33,7 @@ This will create and activate a new conda-environment `acrdms` containing all de
 Finally, download `acrdms_data_v2.tar.gz` from [our dataset deposited at Zenodo](https://zenodo.org/records/13374667) and unpack it in this directory.
 
 ```bash
-tar -xzf acr-dms-data.tar.gz
+tar -xzf acrdms_data_v2.tar.gz
 ```
 
 This will create the data directory containing all raw data needed for analysis.

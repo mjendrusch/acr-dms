@@ -62,11 +62,14 @@ condition_dict, index_list, condition_names = read_condition_dict(condition_path
 run_all_pear(data_path, read_path)
 
 replicates = []
+replicate_names = []
 sequence_np = np.array([c for c in sequence])
 for replicate_name in os.listdir(data_path):
     if ".assembled." not in replicate_name:
         continue
     replicate = f"{data_path}/{replicate_name}"
+    replicate_basename = replicate_name.strip().split("/")[0].split(".")[0]
+    replicate_names.append(replicate_basename)
     bad_index_count = 0
     total_count = 0
     indexed_counts = {}
@@ -102,6 +105,6 @@ fracstd = [np.array([frac(r[key]) for r in replicates]).std() for key in index_l
 
 with open(out_path, "wt") as f:
     f.write(
-        "condition name,index," + ",".join([f"rep {i}"for i in range(len(fracrep[0]))]) + "\n")
+        "condition name,index," + ",".join(replicate_names) + "\n")
     for index, condition, reps in zip(index_list, condition_names, fracrep):
         f.write(f"{condition},{index}," + ",".join([str(r) for r in reps]) + "\n")

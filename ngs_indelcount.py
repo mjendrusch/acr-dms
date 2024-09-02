@@ -59,6 +59,8 @@ out_path = f"{data_path}/outputs.csv"
 count_mut = False
 
 condition_dict, index_list, condition_names = read_condition_dict(condition_path)
+example_fw, example_rv = condition_dict[condition_names[0]]
+barcode_length = len(example_fw)
 run_all_pear(data_path, read_path)
 
 replicates = []
@@ -78,14 +80,14 @@ for replicate_name in os.listdir(data_path):
             total_count += 1
             if idx % 4 == 1:
                 seq = line.strip()
-                index_start = seq[:4]
-                index_end = seq[-4:]
+                index_start = seq[:barcode_length]
+                index_end = seq[-barcode_length:]
                 index = index_start + index_end
                 if index not in index_list:
                     if revcomp(index) not in index_list:
                         bad_index_count += 1
                         continue
-                seq = seq[4:-4]
+                seq = seq[barcode_length:-barcode_length]
                 mismatch = (len(seq) - len(sequence))
                 if index not in indexed_counts:
                     indexed_counts[index] = dict(good=0, bad=0)

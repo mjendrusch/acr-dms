@@ -64,3 +64,8 @@ Steps:
 5. Run `python ngs_indelcount.py path/to/directory/`.
 This will create a file named `outputs.csv` in that directory, which counts the fraction of paired-end reads with indels for each replicate with format:
 `condition name,combined barcode,fraction replicate 1,fraction replicate 2,...`
+
+### Run CRISPResso demux
+Set up a directory the same way you would to run `ngs_indelcount.py` and additionally provide a file
+named `guide.fa`. This file should contain the guide RNA including the PAM.
+Then run `python ngs_indelcount.py <path-to-directory>`

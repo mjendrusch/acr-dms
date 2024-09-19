@@ -67,5 +67,5 @@ This will create a file named `outputs.csv` in that directory, which counts the 
 
 ### Run CRISPResso demux
 Set up a directory the same way you would to run `ngs_indelcount.py` and additionally provide a file
-named `guide.fa`. This file should contain the guide RNA including the PAM.
+named `guide.fa`. This file should contain a 20 base sequence directly upstream of the cut site (the last base should be the base after which the strand is cut).
 Then run `python ngs_indelcount.py <path-to-directory>`
